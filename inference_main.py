@@ -56,7 +56,8 @@ def main():
 
 
     args = parser.parse_args()
-
+    model_name = args.model_path.split('/')[-1].split('.')[0]
+    print(model_name)
     clean_names = args.clean_names
     trans = args.trans
     spk_list = args.spk_list
@@ -147,7 +148,7 @@ def main():
                 isdiffusion = "diff"
             if use_spk_mix:
                 spk = "spk_mix"
-            res_path = f'results/{clean_name}_{key}_{spk}{cluster_name}_{isdiffusion}_{f0p}.{wav_format}'
+            res_path = f'results/{clean_name}_{model_name}_{key}_{spk}{cluster_name}_{isdiffusion}_{f0p}.{wav_format}'
             soundfile.write(res_path, audio, svc_model.target_sample, format=wav_format)
             svc_model.clear_empty()
             

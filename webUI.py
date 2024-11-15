@@ -423,7 +423,7 @@ with gr.Blocks(
         debug_button.change(debug_change,[],[])
         model_load_button.click(modelAnalysis,[model_path,config_path,cluster_model_path,device,enhance,diff_model_path,diff_config_path,only_diffusion,use_spk_mix,local_model_enabled,local_model_selection],[sid,sid_output])
         model_unload_button.click(modelUnload,[],[sid,sid_output])
-    os.system("start http://127.0.0.1:7860")
+    os.system("start http://10.30.78.24:7860")
     app.launch()
 
 

@@ -64,9 +64,11 @@ if __name__ == "__main__":
 
             wavs.append(file_path)
 
+        split_idx = len(wavs) // 10
+
         shuffle(wavs)
-        train += wavs[2:]
-        val += wavs[:2]
+        train += wavs[split_idx:]
+        val += wavs[:split_idx]
 
     shuffle(train)
     shuffle(val)
